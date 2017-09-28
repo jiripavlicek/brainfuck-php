@@ -1,0 +1,15 @@
+{
+    "name": "jiripavlicek/brainfuck",
+    "authors": [
+        {
+            "name": "Jiri Pavlicek",
+            "email": "jiri@pavlicek.cz"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "": "src/classes/"
+        }
+    }
+}
