@@ -7,19 +7,19 @@ class IfRegisterIsNonZeroCommand extends AbstractCommand {
         if (!$this->registry->get()) {
             return 1;
         }
-        $i = $this->programCounter - 1;
+        $i = -1;
         $level = 1;
-        while ($level != 0 && isset($this->program[$i])) {
-            if ($this->program[$i] == '[') {
-                $level++;
-            }
-            if ($this->program[$i] == ']') {
+        while ($level != 0 && isset($this->program[$this->programCounter + $i])) {
+            if ($this->program[$this->programCounter + $i] == '[') {
                 $level--;
+            }
+            if ($this->program[$this->programCounter + $i] == ']') {
+                $level++;
             }
             $i--;
         }
         if (!$level) {
-            return $i;
+            return $i + 2;
         }
         die('] command didn\' found proper starting [');
     }

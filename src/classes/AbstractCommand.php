@@ -2,9 +2,9 @@
 
 class AbstractCommand {
 
-    private $registry;
-    private $program;
-    private $programCounter;
+    protected $registry;
+    protected $program;
+    protected $programCounter;
     
     public function __construct($registry, $program, $programCounter)
     {

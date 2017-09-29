@@ -17,6 +17,9 @@ class Program {
         $this->programCounter = 0;
         while (isset($this->program[$this->programCounter])) {
             $command = $this->program[$this->programCounter];
+
+            // echo "processing command: $command {$this->programCounter}\n";
+            
             $commandClass = $this->decodeCommandClass($command);
             $commandObject = new $commandClass($this->registry, $this->program, $this->programCounter);
             $this->programCounter += $commandObject->run();
