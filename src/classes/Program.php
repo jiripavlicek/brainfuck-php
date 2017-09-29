@@ -14,13 +14,16 @@ class Program {
 
     public function run()
     {
+        $output = '';
         $this->programCounter = 0;
         while (isset($this->program[$this->programCounter])) {
             $command = $this->program[$this->programCounter];
             $commandClass = $this->decodeCommandClass($command);
             $commandObject = new $commandClass($this->registry, $this->program, $this->programCounter);
             $this->programCounter += $commandObject->run();
+            $output .= $commandObject->getOutput();
         }
+        echo $output;
     }
 
     public function decodeCommandClass($command)
