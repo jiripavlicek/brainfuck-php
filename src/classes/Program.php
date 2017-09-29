@@ -28,14 +28,14 @@ class Program {
 
     public function decodeCommandClass($command)
     {
-        $knowCommands = $this->getKnowsCommands();
+        $knowCommands = $this->getKnownCommands();
         if (isset($knowCommands[$command])) {
             return $knowCommands[$command];
         }
         return 'UnknownCommand';
     }
 
-    public function getKnowsCommands()
+    public function getKnownCommands()
     {
         return [
             '>' => 'IncrementDataPointerCommand',
