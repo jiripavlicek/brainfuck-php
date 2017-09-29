@@ -12,7 +12,7 @@ class Program {
         $this->program = $program;
     }
 
-    public function run()
+    public function run() : string
     {
         $output = '';
         $this->programCounter = 0;
@@ -23,7 +23,7 @@ class Program {
             $this->programCounter += $commandObject->run();
             $output .= $commandObject->getOutput();
         }
-        echo $output;
+        return $output;
     }
 
     public function decodeCommandClass($command)
