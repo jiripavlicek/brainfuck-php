@@ -26,7 +26,11 @@ class Program {
         return $output;
     }
 
-    public function decodeCommandClass($command)
+    /**
+     * @param string $command
+     * @return string
+     */
+    public function decodeCommandClass($command) : string
     {
         $knowCommands = $this->getKnownCommands();
         if (isset($knowCommands[$command])) {
@@ -35,7 +39,10 @@ class Program {
         return 'UnknownCommand';
     }
 
-    public function getKnownCommands()
+    /**
+     * @return array
+     */
+    public function getKnownCommands() : array
     {
         return [
             '>' => 'IncrementDataPointerCommand',

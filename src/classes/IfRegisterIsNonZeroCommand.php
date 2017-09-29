@@ -2,7 +2,10 @@
 
 class IfRegisterIsNonZeroCommand extends AbstractCommand {
 
-    public function run()
+    /**
+     * @return int
+     */
+    public function run() : int
     {
         if (!$this->registry->get()) {
             return 1;

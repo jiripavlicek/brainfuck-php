@@ -2,7 +2,10 @@
 
 class IncrementRegisterCommand extends AbstractCommand {
 
-    public function run()
+    /**
+     * @return int
+     */
+    public function run() : int
     {
         $this->registry->increment();
         return 1;

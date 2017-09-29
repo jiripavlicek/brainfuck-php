@@ -2,7 +2,10 @@
 
 class InputRegisterCommand extends AbstractCommand {
 
-    public function run()
+    /**
+     * @return int
+     */
+    public function run() : int
     {
         $value = readline();
         $this->registry->set($value);

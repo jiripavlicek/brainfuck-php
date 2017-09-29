@@ -6,8 +6,14 @@ class AbstractCommand {
     protected $program;
     protected $programCounter;
     protected $output;
-    
-    public function __construct($registry, $program, $programCounter)
+
+    /**
+     * AbstractCommand constructor.
+     * @param $registry
+     * @param string $program
+     * @param int $programCounter
+     */
+    public function __construct($registry, string $program, int $programCounter)
     {
         $this->registry = $registry;
         $this->program = $program;
@@ -15,12 +21,18 @@ class AbstractCommand {
         $this->output = '';
     }
 
-    public function run()
+    /**
+     * @return int
+     */
+    public function run() : int
     {
         return 1;
     }
 
-    public function getOutput()
+    /**
+     * @return string
+     */
+    public function getOutput() : string
     {
         return $this->output;
     }
