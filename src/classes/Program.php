@@ -16,10 +16,11 @@ class Program {
     {
         $output = '';
         $this->programCounter = 0;
+        $commandFactory = new CommandFactory($this->registry, $this->program);
         while (isset($this->program[$this->programCounter])) {
             $command = $this->program[$this->programCounter];
             $commandClass = $this->decodeCommandClass($command);
-            $commandObject = new $commandClass($this->registry, $this->program, $this->programCounter);
+            $commandObject = $commandFactory->createCommand($commandClass, $this->programCounter);
             $this->programCounter += $commandObject->run();
             $output .= $commandObject->getOutput();
         }
