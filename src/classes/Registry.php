@@ -5,6 +5,14 @@ class Registry {
     private $data = [];
     private $pointer = 0;
 
+    /**
+     * @return int
+     */
+    public function getPointer() : int
+    {
+        return $this->pointer;
+    }
+
     public function incrementPointer()
     {
         $this->pointer++;
@@ -15,7 +23,10 @@ class Registry {
         $this->pointer--;
     }
 
-    public function get()
+    /**
+     * @return int
+     */
+    public function get() : int
     {
         return $this->getByIndex($this->pointer);
     }
@@ -32,7 +43,7 @@ class Registry {
      * @param int $index
      * @return int
      */
-    public function getByIndex($index)
+    public function getByIndex($index) : int
     {
         return isset($this->data[$index]) ? $this->data[$index] : 0;
     }
