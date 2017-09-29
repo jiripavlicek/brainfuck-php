@@ -13,7 +13,7 @@ class AbstractCommand {
      * @param string $program
      * @param int $programCounter
      */
-    public function __construct($registry, string $program, int $programCounter)
+    public function __construct($registry, string $program = '', int $programCounter = 0)
     {
         $this->registry = $registry;
         $this->program = $program;
